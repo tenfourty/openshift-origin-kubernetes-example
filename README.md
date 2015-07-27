@@ -134,7 +134,7 @@ $ kubectl create -f ${BASE}/secret.json
 We are now ready to deploy OpenShift.
 
 We will deploy a pod that runs the OpenShift master.  The OpenShift master will delegate to the underlying Kubernetes
-system to manage Kubernetes specific resources.  For the sake of simplicity, the OpenShift master will run with an embedded etcd to hold OpenShift specific content.  This demonstration will evolve in the future to show how to run etcd in a pod so that content is not destroyed if the OpenShift master fails.
+system to manage Kubernetes specific resources.  For the sake of simplicity, the OpenShift master will run with an embedded etcd to hold OpenShift specific content.  **Note if the OpenShift master fails the etcd content will be lost, this is because etcd is using an ephemeral volume for now.**
 
 ```sh
 $ kubectl create -f ${BASE}/openshift-controller.yaml
